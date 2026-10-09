@@ -1,53 +1,18 @@
 # Rubric: is this reproduction package ready to post?
 
-<!--
-THIS IS THE PART YOU WRITE. The skill in SKILL.md executes whatever
-checks you define here. It ships empty on purpose: the judgment is your
-work.
-
-A filled rubric must contain:
-
-1. At least one row in the checks table. Each row needs all four
-   columns:
-   - Check: a short name (used in the output JSON).
-   - Evidence: exactly what to look at, and where in the package. Name
-     the part (the claim comment, the repro report's environment
-     record, the artifacts read against the issue's description, the
-     repo-facts block) or a location from your
-     references/evidence-guide.md. "The report" is not a source; "the
-     output excerpt read against the error the issue describes" is.
-   - Pass condition: a decision rule about the OUTCOME that someone
-     else could apply and get your answer. Judge the thing itself (does
-     the artifact show the issue's behavior?), never the write-up's
-     shape (how many steps it has, how long it is, whether it uses a
-     template's headings). Structure-shaped checks are what make
-     graders disagree with themselves.
-   - Weight: `required` (a fail here holds the package) or `preferred`
-     (never changes the verdict).
-
-2. A verdict rule below the table: how the check grades combine into
-   accept (ready) or reject (hold), including how `unclear` is
-   treated. The verdict space is binary. If you write no rule for
-   `unclear`, the skill treats it as fail.
-
-Cover what actually gets bad packages posted. The lecture named the
-proof families: the environment is recorded, the steps are complete
-and followable, the behavior shown matches the issue (not an adjacent
-one), the outcome is stated honestly (an evidenced cannot-reproduce is
-a pass, a confident wrong-target is not), and the words respect the
-repo's conventions. A rubric that ignores a family will fail eval
-packages designed around that family.
--->
-
 ## Checks
 
 | Check | Evidence | Pass condition | Weight |
 |---|---|---|---|
-|  |  |  |  |
+| claim-specific | Claim compared with issue body and thread highlights. | Names the particular trigger or symptom and a concrete next action. Acknowledges existing work when it affects that action. Generic enthusiasm alone fails; another student's claim does not block independent testing. | required |
+| environment-recorded | Report's environment and version output compared with issue and repo reporting asks. | Explicitly records tested software version and platform, plus installation method or build details when requested or material. Identifies differences from the issue environment and limits conclusions accordingly. Do not infer missing versions from the issue or latest release. | required |
+| steps-rerunnable | Report setup, supplied input, commands or UI actions, and artifact contents. | A stranger can reach the starting state and execute the trigger without inventing necessary details. A minimal command can suffice. Missing input files, empty artifact placeholders, or inaccessible links without usable inline evidence fail. | required |
+| behavior-matches-issue | Issue trigger and distinctive symptom compared with report's actual output, logs, visible screenshots, or concrete observed result. | Evidence tests the relevant trigger and demonstrates the issue's distinctive behavior, or a bounded cannot-reproduce result from a valid attempt at that trigger. An adjacent error, malformed substitute input, or unsupported assertion of reproduction fails. Artifact labels alone are not evidence. | required |
+| conclusion-supported | Claim factual assertions and report conclusion compared with supplied inputs, artifacts, and environment. | Claims stay within the supplied evidence. Honest cannot-reproduce passes with a valid attempt and actual result. Unsupported claims of root cause, fixes, exact reproduction, or cross-version coverage fail. Future plans do not require completed reproduction evidence. | required |
+| repo-conventions | Both comments compared with repo-facts reporting asks and contribution policy. | Supplies required substantive reporting information in understandable, respectful prose, including AI disclosure when policy requires it. Equivalent prose satisfies templates; headings alone do not. No AI disclosure is required when the policy is silent. | required |
 
 ## Verdict rule
 
-<!-- State how the grades above combine into accept or reject, and how
-unclear is treated. Example shape (write your own): "accept if every
-required check passes; preferred checks never change the verdict;
-unclear counts as fail." -->
+Grade pass, fail, or unclear. Fail means a visible contradiction or unmet requirement; unclear means necessary evidence is absent. Accept (ready) only when every applicable required check passes; otherwise reject (hold). Unclear counts as fail. Preferred checks, if added, never affect the verdict.
+
+For claim-only drafts, apply claim-specific, repo-conventions to claim-applicable conventions, and conclusion-supported to claim factual assertions only. Mark environment-recorded, steps-rerunnable, and behavior-matches-issue unclear with evidence `not yet applicable: claim-only draft`, excluding these three from the verdict. Report-template asks do not apply yet. Full packages apply every check. Personal voice rules provide live feedback without independently changing the verdict.
